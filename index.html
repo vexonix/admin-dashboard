@@ -1,0 +1,324 @@
+<html>
+ <head>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+ </head>
+ <body class="bg-gray-100 text-gray-800">
+  <div class="flex flex-col md:flex-row">
+   <!-- Sidebar -->
+   <div class="w-full md:w-1/5 bg-white h-auto md:h-screen p-4 shadow-md">
+    <h2 class="text-xl font-bold mb-6">
+     Admin Dashboard
+    </h2>
+    <ul>
+     <li class="mb-4">
+      <a class="text-gray-800 hover:text-blue-600" href="#">
+       Dashboard
+      </a>
+     </li>
+     <li>
+      <a class="text-gray-800 hover:text-blue-600" href="#">
+       Tambah Postingan
+      </a>
+     </li>
+    </ul>
+   </div>
+   <!-- Main Content -->
+   <div class="w-full md:w-4/5 p-8">
+    <h1 class="text-3xl font-bold mb-6">
+     Selamat Datang, Admin!
+    </h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+     <div class="bg-white p-4 rounded shadow-md">
+      <h2 class="text-xl font-bold">
+       Total Postingan (Bulan Ini)
+      </h2>
+      <p class="text-2xl" id="total-postingan">
+       3
+      </p>
+     </div>
+     <div class="bg-white p-4 rounded shadow-md">
+      <h2 class="text-xl font-bold">
+       Total Komentar (Bulan Ini)
+      </h2>
+      <p class="text-2xl" id="total-komentar">
+       5
+      </p>
+     </div>
+     <div class="bg-white p-4 rounded shadow-md">
+      <h2 class="text-xl font-bold">
+       Total Likes (Bulan Ini)
+      </h2>
+      <p class="text-2xl" id="total-likes">
+       35
+      </p>
+     </div>
+     <div class="bg-white p-4 rounded shadow-md">
+      <h2 class="text-xl font-bold">
+       Total Kunjungan (Bulan Ini)
+      </h2>
+      <p class="text-2xl" id="total-kunjungan">
+       100
+      </p>
+     </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="postingan-list">
+     <div class="bg-white p-4 rounded shadow-md" id="postingan-1">
+      <h3 class="text-lg font-bold mb-2">
+       Postingan Pertama
+      </h3>
+      <img alt="Gambar Postingan Pertama" class="w-full h-48 object-cover rounded mb-4" height="400" id="image-postingan-1" src="https://storage.googleapis.com/a1aa/image/wq833V21DiozIJDPf6EkeDfOoJVCYftqETxSouT1500lNwiOB.jpg" width="600"/>
+      <input class="mb-4" onchange="ubahGambar('postingan-1', event)" type="file"/>
+      <p class="mb-4">
+       Ini adalah konten dari postingan pertama.
+      </p>
+      <div class="flex justify-between">
+       <button class="bg-blue-600 text-white px-4 py-2 rounded" onclick="komentarPostingan('postingan-1')">
+        <i class="fas fa-comment">
+        </i>
+        Komentar
+       </button>
+       <button class="bg-yellow-600 text-white px-4 py-2 rounded" onclick="editPostingan('postingan-1')">
+        <i class="fas fa-edit">
+        </i>
+        Edit
+       </button>
+       <button class="bg-red-600 text-white px-4 py-2 rounded" onclick="hapusPostingan('postingan-1')">
+        <i class="fas fa-trash">
+        </i>
+        Hapus
+       </button>
+       <button class="bg-green-600 text-white px-4 py-2 rounded" onclick="likePostingan('postingan-1')">
+        <i class="fas fa-thumbs-up">
+        </i>
+        Like
+       </button>
+      </div>
+      <div class="mt-4" id="komentar-postingan-1">
+      </div>
+      <p class="mt-2 text-sm text-gray-600" id="likes-postingan-1">
+       Likes: 0
+      </p>
+     </div>
+     <div class="bg-white p-4 rounded shadow-md" id="postingan-2">
+      <h3 class="text-lg font-bold mb-2">
+       Postingan Kedua
+      </h3>
+      <img alt="Gambar Postingan Kedua" class="w-full h-48 object-cover rounded mb-4" height="400" id="image-postingan-2" src="https://storage.googleapis.com/a1aa/image/foqhUBM2fIlU00rHEzAGm94kzSpuzzflaWNARcziOezUNwiOB.jpg" width="600"/>
+      <input class="mb-4" onchange="ubahGambar('postingan-2', event)" type="file"/>
+      <p class="mb-4">
+       Ini adalah konten dari postingan kedua.
+      </p>
+      <div class="flex justify-between">
+       <button class="bg-blue-600 text-white px-4 py-2 rounded" onclick="komentarPostingan('postingan-2')">
+        <i class="fas fa-comment">
+        </i>
+        Komentar
+       </button>
+       <button class="bg-yellow-600 text-white px-4 py-2 rounded" onclick="editPostingan('postingan-2')">
+        <i class="fas fa-edit">
+        </i>
+        Edit
+       </button>
+       <button class="bg-red-600 text-white px-4 py-2 rounded" onclick="hapusPostingan('postingan-2')">
+        <i class="fas fa-trash">
+        </i>
+        Hapus
+       </button>
+       <button class="bg-green-600 text-white px-4 py-2 rounded" onclick="likePostingan('postingan-2')">
+        <i class="fas fa-thumbs-up">
+        </i>
+        Like
+       </button>
+      </div>
+      <div class="mt-4" id="komentar-postingan-2">
+      </div>
+      <p class="mt-2 text-sm text-gray-600" id="likes-postingan-2">
+       Likes: 0
+      </p>
+     </div>
+     <div class="bg-white p-4 rounded shadow-md" id="postingan-3">
+      <h3 class="text-lg font-bold mb-2">
+       Tips Belajar
+      </h3>
+      <img alt="Gambar Tips Belajar" class="w-full h-48 object-cover rounded mb-4" height="400" id="image-postingan-3" src="https://storage.googleapis.com/a1aa/image/AurWbHdTomadIt0fb5FhGULfCmLMIKCh0lV6bflSRjKvGYRnA.jpg" width="600"/>
+      <input class="mb-4" onchange="ubahGambar('postingan-3', event)" type="file"/>
+      <p class="mb-4">
+       Ini adalah tips belajar untuk siswa.
+      </p>
+      <div class="flex justify-between">
+       <button class="bg-blue-600 text-white px-4 py-2 rounded" onclick="komentarPostingan('postingan-3')">
+        <i class="fas fa-comment">
+        </i>
+        Komentar
+       </button>
+       <button class="bg-yellow-600 text-white px-4 py-2 rounded" onclick="editPostingan('postingan-3')">
+        <i class="fas fa-edit">
+        </i>
+        Edit
+       </button>
+       <button class="bg-red-600 text-white px-4 py-2 rounded" onclick="hapusPostingan('postingan-3')">
+        <i class="fas fa-trash">
+        </i>
+        Hapus
+       </button>
+       <button class="bg-green-600 text-white px-4 py-2 rounded" onclick="likePostingan('postingan-3')">
+        <i class="fas fa-thumbs-up">
+        </i>
+        Like
+       </button>
+      </div>
+      <div class="mt-4" id="komentar-postingan-3">
+      </div>
+      <p class="mt-2 text-sm text-gray-600" id="likes-postingan-3">
+       Likes: 0
+      </p>
+     </div>
+    </div>
+    <div class="mt-8">
+     <h2 class="text-2xl font-bold mb-4">
+      Tambah Postingan Baru
+     </h2>
+     <form class="bg-white p-4 rounded shadow-md" onsubmit="tambahPostingan(event)">
+      <div class="mb-4">
+       <label class="block text-gray-800 mb-2" for="title">
+        Judul Postingan
+       </label>
+       <input class="w-full p-2 rounded bg-gray-200 text-gray-800" id="title" name="title" required="" type="text"/>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-800 mb-2" for="content">
+        Konten Postingan
+       </label>
+       <textarea class="w-full p-2 rounded bg-gray-200 text-gray-800" id="content" name="content" required="" rows="4"></textarea>
+      </div>
+      <div class="mb-4">
+       <label class="block text-gray-800 mb-2" for="image">
+        Gambar Postingan
+       </label>
+       <input id="image" name="image" required="" type="file"/>
+      </div>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded" type="submit">
+       Tambah Postingan
+      </button>
+     </form>
+    </div>
+   </div>
+  </div>
+  <script>
+   function updateTotals() {
+            const totalPostingan = document.querySelectorAll('#postingan-list > div').length;
+            const totalKomentar = document.querySelectorAll('#postingan-list textarea').length;
+            const totalLikes = Array.from(document.querySelectorAll('[id^="likes-postingan-"]')).reduce((acc, el) => acc + parseInt(el.innerText.split(': ')[1]), 0);
+
+            document.getElementById('total-postingan').innerText = totalPostingan;
+            document.getElementById('total-komentar').innerText = totalKomentar;
+            document.getElementById('total-likes').innerText = totalLikes;
+        }
+
+        function tambahPostingan(event) {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+            const imageFile = document.getElementById('image').files[0];
+            const newPostId = 'postingan-' + (document.querySelectorAll('#postingan-list > div').length + 1);
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const newPost = `
+                    <div class="bg-white p-4 rounded shadow-md" id="${newPostId}">
+                        <h3 class="text-lg font-bold mb-2">${title}</h3>
+                        <img src="${e.target.result}" alt="Gambar ${title}" class="w-full h-48 object-cover rounded mb-4" id="image-${newPostId}">
+                        <input type="file" class="mb-4" onchange="ubahGambar('${newPostId}', event)">
+                        <p class="mb-4">${content}</p>
+                        <div class="flex justify-between">
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded" onclick="komentarPostingan('${newPostId}')"><i class="fas fa-comment"></i> Komentar</button>
+                            <button class="bg-yellow-600 text-white px-4 py-2 rounded" onclick="editPostingan('${newPostId}')"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="bg-red-600 text-white px-4 py-2 rounded" onclick="hapusPostingan('${newPostId}')"><i class="fas fa-trash"></i> Hapus</button>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded" onclick="likePostingan('${newPostId}')"><i class="fas fa-thumbs-up"></i> Like</button>
+                        </div>
+                        <div class="mt-4" id="komentar-${newPostId}"></div>
+                        <p class="mt-2 text-sm text-gray-600" id="likes-${newPostId}">Likes: 0</p>
+                    </div>
+                `;
+                document.getElementById('postingan-list').insertAdjacentHTML('beforeend', newPost);
+
+                // Clear form
+                document.getElementById('title').value = '';
+                document.getElementById('content').value = '';
+                document.getElementById('image').value = '';
+
+                updateTotals();
+            };
+            reader.readAsDataURL(imageFile);
+        }
+
+        function editPostingan(postId) {
+            const post = document.getElementById(postId);
+            const title = post.querySelector('h3').innerText;
+            const content = post.querySelector('p').innerText;
+
+            document.getElementById('title').value = title;
+            document.getElementById('content').value = content;
+
+            post.remove();
+
+            updateTotals();
+        }
+
+        function hapusPostingan(postId) {
+            document.getElementById(postId).remove();
+            updateTotals();
+        }
+
+        function likePostingan(postId) {
+            const likesElement = document.getElementById(`likes-${postId}`);
+            let likes = parseInt(likesElement.innerText.split(': ')[1]);
+            likesElement.innerText = `Likes: ${likes + 1}`;
+
+            updateTotals();
+        }
+
+        function komentarPostingan(postId) {
+            const komentarContainer = document.getElementById(`komentar-${postId}`);
+            const komentarInput = `
+                <div class="mt-4">
+                    <textarea class="w-full p-2 rounded bg-gray-200 text-gray-800 mb-2" rows="2" placeholder="Tambahkan komentar..."></textarea>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded" onclick="tambahKomentar('${postId}', this)">Tambah Komentar</button>
+                </div>
+            `;
+            komentarContainer.innerHTML = komentarInput;
+        }
+
+        function tambahKomentar(postId, button) {
+            const komentarContainer = document.getElementById(`komentar-${postId}`);
+            const komentarText = komentarContainer.querySelector('textarea').value;
+
+            if (komentarText.trim() !== '') {
+                const newKomentar = `
+                    <div class="bg-gray-200 p-2 rounded mt-2">
+                        <p>${komentarText}</p>
+                    </div>
+                `;
+                komentarContainer.insertAdjacentHTML('beforeend', newKomentar);
+                komentarContainer.querySelector('textarea').value = '';
+
+                updateTotals();
+            }
+        }
+
+        function ubahGambar(postId, event) {
+            const imageFile = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById(`image-${postId}`).src = e.target.result;
+            };
+            reader.readAsDataURL(imageFile);
+        }
+
+        // Initial update of totals
+        updateTotals();
+  </script>
+ </body>
+</html>
