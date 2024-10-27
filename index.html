@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Social Media Dashboard</h1>
+            <p></p>
+        </header>
+
+        <section class="stats">
+            <div class="stat">
+                <h3>Postingan</h3>
+                <p id="postCount">120</p>
+            </div>
+            <div class="stat">
+                <h3>Komentar</h3>
+                <p id="commentCount">350</p>
+            </div>
+            <div class="stat">
+                <h3>Pengunjung</h3>
+                <p id="visitorCount">500</p>
+            </div>
+        </section>
+
+        <section class="chart">
+            <h2>Grafik Aktivitas Bulanan</h2>
+            <canvas id="activityChart"></canvas>
+        </section>
+
+        <section class="post-management">
+            <h2>Manajemen Postingan</h2>
+            <div class="add-post">
+                <h3>Tambah Postingan Baru</h3>
+                <input type="text" id="newPostTitle" placeholder="Judul Postingan">
+                <textarea id="newPostContent" placeholder="Isi Postingan"></textarea>
+                <button onclick="addPost()">Tambah Postingan</button>
+            </div>
+            <div class="edit-post">
+                <h3>Edit Postingan</h3>
+                <select id="postList"></select>
+                <input type="text" id="editPostTitle" placeholder="Judul Baru">
+                <textarea id="editPostContent" placeholder="Konten Baru"></textarea>
+                <button onclick="editPost()">Simpan Perubahan</button>
+            </div>
+        </section>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
